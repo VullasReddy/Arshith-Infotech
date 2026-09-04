@@ -1,0 +1,11 @@
+# Dependencies
+node_modules/
+
+# OS / Editor junk
+.DS_Store
+Thumbs.db
+.vscode/
+.idea/
+
+# Nested duplicate folder
+Arshith-Infotech-main final/

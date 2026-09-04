@@ -209,7 +209,7 @@ a {
   -webkit-backdrop-filter: blur(16px);
   border-bottom: 1px solid rgba(0, 0, 0, 0.08) !important;
   box-shadow: 0 4px 20px rgba(0, 0, 0, 0.05);
-  padding: 1.1rem 0;
+  padding: 0.35rem 0;
   transition: var(--transition);
 }
 
@@ -235,7 +235,7 @@ a {
 }
 
 .logo-img {
-  height: 66px;
+  height: 78px;
   width: auto;
   max-width: 100%;
   object-fit: contain;
@@ -531,12 +531,12 @@ a {
   display: inline-block;
   font-family: inherit;
   font-weight: 800;
-  color: #000000 !important;
-  background: none !important;
-  -webkit-background-clip: initial !important;
-  -webkit-text-fill-color: #000000 !important;
-  filter: none !important;
-  animation: none;
+  background: linear-gradient(135deg, #00f2fe 0%, #38bdf8 35%, #818cf8 70%, #00f2fe 100%);
+  background-size: 250% auto;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  filter: drop-shadow(0 0 22px rgba(56, 189, 248, 0.45));
+  animation: hologramShimmer 6s linear infinite;
   letter-spacing: -0.01em;
   user-select: none;
   min-height: 1.15em;
@@ -1143,11 +1143,10 @@ body.page-infotech .about-hero-title {
 
 .about-hero-title .hologram-scramble-text {
   display: inline-block;
-  color: #000000 !important;
-  background: none !important;
-  -webkit-background-clip: initial !important;
-  -webkit-text-fill-color: #000000 !important;
-  filter: none !important;
+  background: linear-gradient(135deg, #0284c7 0%, #00b4d8 50%, #2563eb 100%) !important;
+  -webkit-background-clip: text !important;
+  -webkit-text-fill-color: transparent !important;
+  filter: drop-shadow(0 2px 8px rgba(2, 132, 199, 0.25)) !important;
   font-weight: 700 !important;
   opacity: 0;
   transform: translateY(110%);
@@ -1168,8 +1167,8 @@ body.page-infotech .about-hero-title {
   left: 0;
   height: 2.5px;
   width: 0%;
-  background: #000000 !important;
-  box-shadow: none !important;
+  background: linear-gradient(90deg, transparent, #0284c7, #00f2fe, #2563eb, transparent) !important;
+  box-shadow: 0 0 10px #00f2fe !important;
   transition: width 1.2s cubic-bezier(0.16, 1, 0.3, 1) 0.5s;
 }
 
@@ -1338,7 +1337,7 @@ body.theme-page-dark-emerald .about-feature-icon svg {
 }
 
 .about-feature-details p strong {
-  color: #0f172a !important;
+  color: #0284c7 !important;
   font-weight: 700;
   text-shadow: none !important;
 }
@@ -1759,14 +1758,14 @@ body.page-services #services-grid-section .section-subtitle {
 
 .service-card {
   position: relative;
-  height: 480px;
+  height: 500px;
   border-radius: 20px;
   overflow: hidden;
-  border: 1px solid rgba(15, 23, 42, 0.25);
-  background-color: #060e22;
-  box-shadow: 0 14px 38px -8px rgba(0, 0, 0, 0.45);
-  transition: transform 0.48s cubic-bezier(0.16, 1, 0.3, 1), 
-              box-shadow 0.48s cubic-bezier(0.16, 1, 0.3, 1), 
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  background-color: #0b1528;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.25);
+  transition: transform 0.45s cubic-bezier(0.16, 1, 0.3, 1), 
+              box-shadow 0.45s cubic-bezier(0.16, 1, 0.3, 1), 
               border-color 0.4s ease;
   cursor: pointer;
   will-change: transform, box-shadow;
@@ -1779,54 +1778,60 @@ body.page-services #services-grid-section .section-subtitle {
 }
 
 /* Card Hover Elevation */
-.service-card:hover {
+.service-card:hover,
+.service-card.active-touch {
   transform: translateY(-8px);
-  border-color: #0f172a !important;
-  box-shadow: 0 22px 50px -8px rgba(0, 0, 0, 0.6) !important;
+  border-color: rgba(56, 189, 248, 0.6) !important;
+  box-shadow: 0 20px 45px -5px rgba(2, 132, 199, 0.35), 0 0 25px rgba(56, 189, 248, 0.25) !important;
 }
 
-.service-card:hover::before {
+.service-card:hover::before,
+.service-card.active-touch::before {
   display: none !important;
 }
 
-/* Background Image with Smooth Zoom In / Zoom Out */
+/* Background Image - Crisp, Bright & Clearly Visible */
 .service-card-bg {
   position: absolute;
   inset: 0;
   background-size: cover;
   background-position: center;
-  filter: brightness(0.92) contrast(1.08) saturate(1.1);
+  filter: brightness(1.02) contrast(1.05) saturate(1.1);
   transform: scale(1);
-  transition: transform 0.75s cubic-bezier(0.16, 1, 0.3, 1), filter 0.5s ease;
+  transition: transform 0.7s cubic-bezier(0.16, 1, 0.3, 1), filter 0.45s ease;
   will-change: transform, filter;
   z-index: 1;
 }
 
-.service-card:hover .service-card-bg {
-  transform: scale(1.12);
-  filter: brightness(1.12) contrast(1.12) saturate(1.2);
+.service-card:hover .service-card-bg,
+.service-card.active-touch .service-card-bg {
+  transform: scale(1.08);
+  filter: brightness(1.08) contrast(1.1) saturate(1.2);
 }
 
-/* Overlay */
+/* Bottom Subtle Gradient Overlay (Leaves top 60% totally clear & bright) */
 .service-card-overlay {
   position: absolute;
   inset: 0;
   background: linear-gradient(
     180deg,
-    rgba(6, 14, 34, 0.15) 0%,
-    rgba(4, 10, 26, 0.55) 45%,
+    rgba(0, 0, 0, 0) 0%,
+    rgba(0, 0, 0, 0) 40%,
+    rgba(2, 6, 20, 0.4) 65%,
     rgba(2, 6, 18, 0.95) 100%
   );
   z-index: 2;
   transition: background 0.45s ease;
   overflow: hidden;
+  pointer-events: none;
 }
 
-.service-card:hover .service-card-overlay {
+.service-card:hover .service-card-overlay,
+.service-card.active-touch .service-card-overlay {
   background: linear-gradient(
     180deg,
-    rgba(6, 14, 34, 0.25) 0%,
-    rgba(4, 10, 26, 0.75) 40%,
+    rgba(2, 6, 20, 0.35) 0%,
+    rgba(2, 6, 20, 0.75) 35%,
     rgba(2, 6, 18, 0.98) 100%
   );
 }
@@ -1838,19 +1843,21 @@ body.page-services #services-grid-section .section-subtitle {
   display: flex;
   flex-direction: column;
   justify-content: flex-end;
-  padding: 1.4rem;
+  padding: 1.35rem;
   background: linear-gradient(
     180deg,
-    rgba(6, 14, 32, 0.72) 0%,
-    rgba(4, 10, 26, 0.96) 45%,
-    rgba(2, 6, 18, 0.99) 100%
+    transparent 0%,
+    rgba(3, 9, 24, 0.5) 25%,
+    rgba(2, 7, 20, 0.92) 65%,
+    rgba(1, 4, 14, 0.98) 100%
   );
-  backdrop-filter: blur(14px);
-  -webkit-backdrop-filter: blur(14px);
-  transform: translateY(calc(100% - 104px));
-  transition: transform 0.52s cubic-bezier(0.16, 1, 0.3, 1), background 0.45s ease;
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+  transform: translateY(calc(100% - 138px));
+  transition: transform 0.52s cubic-bezier(0.16, 1, 0.3, 1), 
+              background 0.45s ease, 
+              backdrop-filter 0.45s ease;
   z-index: 3;
-  box-shadow: 0 -8px 25px rgba(0, 0, 0, 0.5);
   box-sizing: border-box;
 }
 
@@ -1858,19 +1865,23 @@ body.page-services #services-grid-section .section-subtitle {
   content: '';
   position: absolute;
   inset: 0;
-  background: linear-gradient(135deg, rgba(255, 255, 255, 0.06) 0%, transparent 50%);
+  background: linear-gradient(135deg, rgba(255, 255, 255, 0.08) 0%, transparent 50%);
   pointer-events: none;
   border-radius: 20px;
 }
 
-.service-card:hover .service-card-content {
+.service-card:hover .service-card-content,
+.service-card.active-touch .service-card-content {
   transform: translateY(0);
   background: linear-gradient(
     180deg,
-    rgba(6, 14, 34, 0.88) 0%,
-    rgba(4, 10, 26, 0.98) 40%,
-    rgba(2, 6, 18, 1) 100%
+    rgba(4, 11, 30, 0.9) 0%,
+    rgba(2, 7, 20, 0.97) 35%,
+    rgba(1, 4, 14, 0.99) 100%
   );
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  box-shadow: 0 -10px 35px rgba(0, 0, 0, 0.6);
 }
 
 /* Header with Icon, Title, and Indicator */
@@ -1879,7 +1890,7 @@ body.page-services #services-grid-section .section-subtitle {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  gap: 0.85rem;
+  gap: 0.75rem;
 }
 
 .service-icon-wrap {
@@ -1890,23 +1901,24 @@ body.page-services #services-grid-section .section-subtitle {
   width: 44px;
   height: 44px;
   border-radius: 12px;
-  background: rgba(15, 23, 42, 0.12);
-  border: 1px solid #0f172a;
+  background: rgba(15, 23, 42, 0.85);
+  border: 1.5px solid rgba(56, 189, 248, 0.5);
   display: flex;
   align-items: center;
   justify-content: center;
   font-size: 1.25rem;
-  color: #0f172a;
-  box-shadow: none;
+  color: #38bdf8;
+  box-shadow: 0 4px 14px rgba(0, 0, 0, 0.4), 0 0 10px rgba(56, 189, 248, 0.2);
   transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
   margin-bottom: 0;
 }
 
-.service-card:hover .service-icon {
-  background: #0f172a;
-  border-color: #0f172a;
+.service-card:hover .service-icon,
+.service-card.active-touch .service-icon {
+  background: linear-gradient(135deg, #0284c7, #00f2fe);
+  border-color: #38bdf8;
   color: #ffffff;
-  box-shadow: 0 4px 14px rgba(0, 0, 0, 0.3);
+  box-shadow: 0 0 20px rgba(0, 242, 254, 0.6);
   transform: scale(1.08);
 }
 
@@ -1925,56 +1937,65 @@ body.page-services #services-grid-section .section-subtitle {
   font-weight: 700;
   text-transform: uppercase;
   letter-spacing: 0.08em;
-  color: #0f172a !important;
-  margin-bottom: 0.2rem;
-  transition: color 0.3s ease;
+  color: #38bdf8 !important;
+  background: rgba(2, 132, 199, 0.22);
+  border: 1px solid rgba(56, 189, 248, 0.4);
+  padding: 0.2rem 0.65rem;
+  border-radius: 9999px;
+  margin-bottom: 0.3rem;
+  width: fit-content;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.3);
+  transition: all 0.3s ease;
 }
 
 .service-badge-tag i {
   font-size: 0.75rem;
-  color: #0f172a !important;
+  color: #38bdf8 !important;
 }
 
 .service-card-header h3 {
-  font-size: 1.2rem;
+  font-size: 1.12rem;
   font-weight: 700;
-  color: #ffffff;
+  color: #ffffff !important;
   margin: 0;
-  line-height: 1.25;
-  text-shadow: 0 2px 10px rgba(0, 0, 0, 0.9);
+  line-height: 1.3;
+  text-shadow: 0 2px 10px rgba(0, 0, 0, 0.95);
+  white-space: normal;
+  overflow: visible;
+  text-overflow: clip;
+  word-break: normal;
   transition: color 0.35s ease, text-shadow 0.35s ease;
-  white-space: nowrap;
-  overflow: hidden;
-  text-overflow: ellipsis;
 }
 
-.service-card:hover .service-card-header h3 {
+.service-card:hover .service-card-header h3,
+.service-card.active-touch .service-card-header h3 {
   color: #ffffff !important;
-  text-shadow: 0 0 16px rgba(255, 255, 255, 0.5);
+  text-shadow: 0 0 16px rgba(255, 255, 255, 0.6);
 }
 
 .service-slide-cue {
-  width: 28px;
-  height: 28px;
+  width: 32px;
+  height: 32px;
   border-radius: 50%;
-  background: rgba(15, 23, 42, 0.12);
-  border: 1px solid #0f172a;
-  color: #0f172a;
+  background: rgba(15, 23, 42, 0.85);
+  border: 1.5px solid rgba(56, 189, 248, 0.45);
+  color: #38bdf8;
   display: flex;
   align-items: center;
   justify-content: center;
-  font-size: 0.72rem;
+  font-size: 0.78rem;
   flex-shrink: 0;
-  transition: transform 0.48s cubic-bezier(0.16, 1, 0.3, 1), background 0.3s ease, border-color 0.3s ease;
+  transition: all 0.48s cubic-bezier(0.16, 1, 0.3, 1);
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.4);
 }
 
-
-.service-card:hover .service-slide-cue {
+.service-card:hover .service-slide-cue,
+.service-card.active-touch .service-slide-cue {
   transform: rotate(180deg) scale(1.1);
-  background: rgba(0, 242, 254, 0.3);
+  background: linear-gradient(135deg, #0284c7, #00f2fe);
   color: #ffffff;
   border-color: #00f2fe;
-  box-shadow: 0 0 14px rgba(0, 242, 254, 0.6);
+  box-shadow: 0 0 16px rgba(0, 242, 254, 0.7);
 }
 
 /* Glowing Divider */
@@ -1983,7 +2004,7 @@ body.page-services #services-grid-section .section-subtitle {
   width: 100%;
   background: linear-gradient(90deg, #00f2fe, #38bdf8, transparent);
   margin: 0.85rem 0;
-  opacity: 0.8;
+  opacity: 0.85;
 }
 
 /* Matter / Body Slide-Up Panel */
@@ -1993,29 +2014,31 @@ body.page-services #services-grid-section .section-subtitle {
   justify-content: space-between;
   flex: 1;
   opacity: 0;
-  transform: translateY(16px);
+  transform: translateY(18px);
   transition: opacity 0.42s ease 0.08s, transform 0.48s cubic-bezier(0.16, 1, 0.3, 1) 0.08s;
   will-change: opacity, transform;
 }
 
-.service-card:hover .service-card-body {
+.service-card:hover .service-card-body,
+.service-card.active-touch .service-card-body {
   opacity: 1;
   transform: translateY(0);
 }
 
 .service-card-body p {
-  font-size: 0.86rem;
-  color: #cbd5e1;
+  font-size: 0.88rem;
+  color: #e2e8f0;
   line-height: 1.55;
   margin: 0 0 0.85rem 0;
   text-shadow: 0 1px 4px rgba(0, 0, 0, 0.9);
+  font-weight: 400;
 }
 
 /* Matter Points List */
 .service-matter-points {
   list-style: none;
   padding: 0;
-  margin: 0 0 1.2rem 0;
+  margin: 0 0 1.1rem 0;
   display: flex;
   flex-direction: column;
   gap: 0.45rem;
@@ -2025,8 +2048,8 @@ body.page-services #services-grid-section .section-subtitle {
   display: flex;
   align-items: center;
   gap: 0.55rem;
-  font-size: 0.82rem;
-  color: #e2e8f0;
+  font-size: 0.84rem;
+  color: #f8fafc;
   font-weight: 500;
   opacity: 0;
   transform: translateY(12px);
@@ -2034,25 +2057,28 @@ body.page-services #services-grid-section .section-subtitle {
 }
 
 .service-matter-points li i {
-  color: #00f2fe;
-  font-size: 0.82rem;
-  text-shadow: 0 0 8px rgba(0, 242, 254, 0.7);
+  color: #38bdf8;
+  font-size: 0.85rem;
+  text-shadow: 0 0 10px rgba(56, 189, 248, 0.8);
   flex-shrink: 0;
 }
 
-.service-card:hover .service-matter-points li:nth-child(1) {
+.service-card:hover .service-matter-points li:nth-child(1),
+.service-card.active-touch .service-matter-points li:nth-child(1) {
   opacity: 1;
   transform: translateY(0);
   transition-delay: 0.08s;
 }
 
-.service-card:hover .service-matter-points li:nth-child(2) {
+.service-card:hover .service-matter-points li:nth-child(2),
+.service-card.active-touch .service-matter-points li:nth-child(2) {
   opacity: 1;
   transform: translateY(0);
   transition-delay: 0.14s;
 }
 
-.service-card:hover .service-matter-points li:nth-child(3) {
+.service-card:hover .service-matter-points li:nth-child(3),
+.service-card.active-touch .service-matter-points li:nth-child(3) {
   opacity: 1;
   transform: translateY(0);
   transition-delay: 0.20s;
@@ -2071,14 +2097,16 @@ body.page-services #services-grid-section .section-subtitle {
   color: #ffffff;
   padding: 0.45rem 1.15rem;
   border-radius: 9999px;
-  background: linear-gradient(135deg, rgba(0, 242, 254, 0.2) 0%, rgba(37, 99, 235, 0.35) 100%);
-  border: 1px solid rgba(56, 189, 248, 0.45);
+  background: linear-gradient(135deg, rgba(0, 242, 254, 0.25) 0%, rgba(37, 99, 235, 0.4) 100%);
+  border: 1px solid rgba(56, 189, 248, 0.55);
   box-shadow: 0 0 16px rgba(0, 242, 254, 0.25);
   transition: all 0.35s cubic-bezier(0.16, 1, 0.3, 1);
   pointer-events: auto;
 }
 
-.service-card:hover .card-learn {
+.card-learn:hover,
+.service-card:hover .card-learn,
+.service-card.active-touch .card-learn {
   background: linear-gradient(135deg, #00f2fe 0%, #2563eb 100%);
   color: #040e24;
   font-weight: 700;
@@ -5041,7 +5069,7 @@ a.contact-info-value:hover {
 
   /* Unified Responsive Navbar */
   .navbar {
-    padding: 0.85rem 0 !important;
+    padding: 0.35rem 0 !important;
   }
   .navbar .container {
     display: flex;
@@ -5051,7 +5079,7 @@ a.contact-info-value:hover {
     padding-right: 0.75rem !important;
   }
   .logo-img {
-    height: 54px !important;
+    height: 64px !important;
   }
   .logo {
     margin-left: -6px !important;
@@ -5553,21 +5581,21 @@ body.theme-page-dark-emerald .aurora-orb-3 {
 body.theme-page-cyber-blue #tech-stack,
 body.theme-page-cyber-blue #contact,
 body.theme-page-cyber-blue #stats,
-body.theme-page-cyber-blue .careers-section:not(.careers-why-section):not(.careers-life-section):not(.careers-culture-section):not(.careers-openings-section),
-body.theme-page-cyber-blue .section-padding:not(#insights):not(#process):not(#about):not(#services):not(#why-us):not(#industries):not(#services-grid-section):not(#why-join-us):not(#life-at-arshith):not(#openings):not(.careers-why-section):not(.careers-life-section):not(.careers-culture-section):not(.careers-openings-section):not(.careers-cta-section):not(.careers-light-wrapper),
-body.theme-page-cyber-blue .bg-alt:not(#insights):not(#process):not(#about):not(#services):not(#why-us):not(#industries):not(#services-grid-section):not(#why-join-us):not(#life-at-arshith):not(#openings):not(.careers-why-section):not(.careers-life-section):not(.careers-culture-section):not(.careers-openings-section):not(.careers-cta-section):not(.careers-light-wrapper),
+body.theme-page-cyber-blue .careers-section,
+body.theme-page-cyber-blue .section-padding:not(#insights):not(#process):not(#about):not(#services):not(#why-us):not(#industries):not(#services-grid-section),
+body.theme-page-cyber-blue .bg-alt:not(#insights):not(#process):not(#about):not(#services):not(#why-us):not(#industries):not(#services-grid-section),
 body.theme-cyber-blue #tech-stack,
 body.theme-cyber-blue #contact,
 body.theme-cyber-blue #stats,
-body.theme-cyber-blue .careers-section:not(.careers-why-section):not(.careers-life-section):not(.careers-culture-section):not(.careers-openings-section),
-body.theme-cyber-blue .section-padding:not(#insights):not(#process):not(#about):not(#services):not(#why-us):not(#industries):not(#services-grid-section):not(#why-join-us):not(#life-at-arshith):not(#openings):not(.careers-why-section):not(.careers-life-section):not(.careers-culture-section):not(.careers-openings-section):not(.careers-cta-section):not(.careers-light-wrapper),
-body.theme-cyber-blue .bg-alt:not(#insights):not(#process):not(#about):not(#services):not(#why-us):not(#industries):not(#services-grid-section):not(#why-join-us):not(#life-at-arshith):not(#openings):not(.careers-why-section):not(.careers-life-section):not(.careers-culture-section):not(.careers-openings-section):not(.careers-cta-section):not(.careers-light-wrapper),
+body.theme-cyber-blue .careers-section,
+body.theme-cyber-blue .section-padding:not(#insights):not(#process):not(#about):not(#services):not(#why-us):not(#industries):not(#services-grid-section),
+body.theme-cyber-blue .bg-alt:not(#insights):not(#process):not(#about):not(#services):not(#why-us):not(#industries):not(#services-grid-section),
 body.theme-page-dark-emerald #tech-stack,
 body.theme-page-dark-emerald #contact,
 body.theme-page-dark-emerald #stats,
-body.theme-page-dark-emerald .careers-section:not(.careers-why-section):not(.careers-life-section):not(.careers-culture-section):not(.careers-openings-section),
-body.theme-page-dark-emerald .section-padding:not(#insights):not(#process):not(#about):not(#services):not(#why-us):not(#industries):not(#services-grid-section):not(#why-join-us):not(#life-at-arshith):not(#openings):not(.careers-why-section):not(.careers-life-section):not(.careers-culture-section):not(.careers-openings-section):not(.careers-cta-section):not(.careers-light-wrapper),
-body.theme-page-dark-emerald .bg-alt:not(#insights):not(#process):not(#about):not(#services):not(#why-us):not(#industries):not(#services-grid-section):not(#why-join-us):not(#life-at-arshith):not(#openings):not(.careers-why-section):not(.careers-life-section):not(.careers-culture-section):not(.careers-openings-section):not(.careers-cta-section):not(.careers-light-wrapper) {
+body.theme-page-dark-emerald .careers-section,
+body.theme-page-dark-emerald .section-padding:not(#insights):not(#process):not(#about):not(#services):not(#why-us):not(#industries):not(#services-grid-section),
+body.theme-page-dark-emerald .bg-alt:not(#insights):not(#process):not(#about):not(#services):not(#why-us):not(#industries):not(#services-grid-section) {
   background: linear-gradient(180deg, rgba(4, 8, 22, 0.78) 0%, rgba(8, 17, 38, 0.85) 50%, rgba(4, 8, 22, 0.78) 100%) !important;
   position: relative;
   z-index: 2;
@@ -7552,14 +7580,8 @@ body.page-about .about-list li::before {
 
 .featured-card-grid {
   display: grid;
-  grid-template-columns: 1fr 1fr;
+  grid-template-columns: 1.15fr 1fr;
   align-items: stretch;
-}
-
-@media (max-width: 992px) {
-  .featured-card-grid {
-    grid-template-columns: 1fr;
-  }
 }
 
 .featured-image-pane {
@@ -7571,7 +7593,7 @@ body.page-about .about-list li::before {
   position: relative;
   width: 100%;
   height: 100%;
-  min-height: 240px;
+  min-height: 280px;
   overflow: hidden;
   background: #070d18;
 }
@@ -7616,7 +7638,7 @@ body.page-about .about-list li::before {
 }
 
 .featured-content-pane {
-  padding: 2.5rem 2.8rem;
+  padding: 3.2rem;
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -7686,7 +7708,7 @@ body.page-about .about-list li::before {
 }
 
 .featured-article-title {
-  font-size: clamp(1.5rem, 2.2vw, 2.1rem);
+  font-size: 2.2rem;
   font-weight: 800;
   color: #ffffff;
   margin-bottom: 1.1rem;
@@ -7695,7 +7717,7 @@ body.page-about .about-list li::before {
 }
 
 .featured-article-desc {
-  font-size: 1rem;
+  font-size: 1.02rem;
   color: #cbd5e1;
   line-height: 1.65;
   margin-bottom: 1.6rem;
@@ -7733,175 +7755,106 @@ body.page-about .about-list li::before {
   flex-wrap: wrap;
 }
 
-.article-card-footer {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  gap: 1.5rem;
-  flex-wrap: wrap;
-}
-
 .btn-read-insight {
-  display: inline-flex;
-  align-items: center;
-  gap: 0.6rem;
-  padding: 0.75rem 1.6rem;
-  background: #000000;
-  color: #ffffff;
-  border: 1px solid rgba(255, 255, 255, 0.15);
-  border-radius: 8px;
-  font-size: 0.88rem;
-  font-weight: 700;
-  cursor: pointer;
-  transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1);
-  font-family: inherit;
-}
-
-.btn-read-insight:hover {
-  background: #111827;
-  border-color: rgba(56, 189, 248, 0.5);
-  color: #ffffff;
-  transform: translateY(-2px);
-  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.4);
+  gap: 0.55rem;
+  padding: 0.85rem 1.8rem;
+  font-weight: 600;
 }
 
 .author-attribution {
   font-size: 0.82rem;
   color: #64748b;
   font-weight: 600;
-  padding-right: 1rem;
 }
 
-/* --- Magazine Articles Full-Width Stacked Showcase (ALL MATCHING THE AI CARD) --- */
-.insights-articles-grid {
+/* --- Magazine Grid Rows --- */
+.magazine-grid-row-1 {
+  display: grid;
+  grid-template-columns: 1.15fr 1fr;
+  gap: 2rem;
+  margin-bottom: 2rem;
+}
+
+.magazine-stacked-col {
   display: flex;
   flex-direction: column;
-  gap: 2.8rem;
-  margin-bottom: 5rem;
+  gap: 2rem;
 }
 
-.featured-insight-card,
+.magazine-grid-row-2 {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 2rem;
+  margin-bottom: 4rem;
+}
+
+/* General Article Card Styles */
 .insight-article-card {
-  background: linear-gradient(155deg, #0e1d38 0%, #070e1c 100%);
-  border: 1px solid rgba(56, 189, 248, 0.28);
-  border-radius: 24px;
+  background: rgba(15, 23, 42, 0.65);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: 20px;
   overflow: hidden;
-  margin-bottom: 0;
   transition: all 0.35s cubic-bezier(0.16, 1, 0.3, 1);
-  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.65), 0 0 35px rgba(6, 182, 212, 0.12);
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.4);
 }
 
-.featured-insight-card:hover,
 .insight-article-card:hover {
   transform: translateY(-5px);
-  border-color: rgba(56, 189, 248, 0.6);
-  box-shadow: 0 25px 75px rgba(0, 0, 0, 0.75), 0 0 50px rgba(6, 182, 212, 0.32);
+  border-color: rgba(56, 189, 248, 0.45);
+  box-shadow: 0 18px 45px rgba(0, 0, 0, 0.6), 0 0 30px rgba(6, 182, 212, 0.22);
 }
 
-.featured-card-grid {
+/* Card Tall (Row 1 Left) */
+.card-tall .card-inner-tall {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+}
+
+.tall-frame {
+  height: 280px;
+}
+
+/* Card Horizontal Compact (Row 1 Right) */
+.card-horizontal-compact .card-inner-horizontal {
   display: grid;
-  grid-template-columns: 1.1fr 1fr;
+  grid-template-columns: 200px 1fr;
   align-items: stretch;
-}
-
-@media (max-width: 992px) {
-  .featured-card-grid {
-    grid-template-columns: 1fr;
-  }
-}
-
-.featured-image-pane {
-  position: relative;
-  overflow: hidden;
-}
-
-.insight-img-frame {
-  position: relative;
-  width: 100%;
   height: 100%;
-  min-height: 320px;
-  overflow: hidden;
-  background: #070d18;
 }
 
-.insight-media-img {
-  width: 100%;
+.compact-frame {
   height: 100%;
-  object-fit: cover;
-  display: block;
-  transition: transform 0.5s cubic-bezier(0.16, 1, 0.3, 1);
+  min-height: 200px;
 }
 
-.featured-insight-card:hover .insight-media-img,
-.insight-article-card:hover .insight-media-img {
-  transform: scale(1.04);
+/* Card Half Horizontal (Row 2) */
+.card-half-horizontal .card-inner-half {
+  display: grid;
+  grid-template-columns: 220px 1fr;
+  align-items: stretch;
+  height: 100%;
 }
 
-.featured-content-pane {
-  padding: 3rem 3.2rem;
+.half-frame {
+  height: 100%;
+  min-height: 220px;
+}
+
+.card-content-body {
+  padding: 1.8rem;
   display: flex;
   flex-direction: column;
   justify-content: center;
 }
 
-@media (max-width: 640px) {
-  .featured-content-pane {
-    padding: 1.8rem;
-  }
-}
-
-.featured-article-title {
-  font-size: clamp(1.4rem, 2vw, 2rem);
-  font-weight: 800;
+.article-title {
+  font-size: 1.3rem;
+  font-weight: 700;
   color: #ffffff;
-  margin-bottom: 1rem;
-  line-height: 1.28;
-  letter-spacing: -0.02em;
+  margin-bottom: 0.65rem;
+  line-height: 1.35;
   transition: color 0.25s ease;
-}
-
-.featured-insight-card:hover .featured-article-title,
-.insight-article-card:hover .featured-article-title {
-  color: #38bdf8;
-}
-
-.featured-article-desc {
-  font-size: 0.98rem;
-  color: #cbd5e1;
-  line-height: 1.65;
-  margin-bottom: 1.6rem;
-}
-
-.article-takeaways-preview {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 0.6rem;
-  margin-bottom: 2rem;
-}
-
-.takeaway-badge {
-  display: inline-flex;
-  align-items: center;
-  gap: 0.45rem;
-  padding: 0.4rem 0.85rem;
-  border-radius: 8px;
-  background: rgba(15, 23, 42, 0.75);
-  border: 1px solid rgba(255, 255, 255, 0.1);
-  color: #cbd5e1;
-  font-size: 0.78rem;
-  font-weight: 600;
-}
-
-.takeaway-badge i {
-  color: #10b981;
-}
-
-.article-card-footer {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  gap: 1.2rem;
-  flex-wrap: wrap;
 }
 
 .insight-article-card:hover .article-title {
@@ -7912,46 +7865,32 @@ body.page-about .about-list li::before {
   font-size: 0.88rem;
   color: #94a3b8;
   line-height: 1.6;
-  margin-bottom: 1.5rem;
-  display: -webkit-box;
-  -webkit-line-clamp: 3;
-  -webkit-box-orient: vertical;
-  overflow: hidden;
+  margin-bottom: 1.4rem;
 }
 
 .btn-read-inline {
   display: inline-flex;
   align-items: center;
-  gap: 0.55rem;
-  font-size: 0.85rem;
+  gap: 0.5rem;
+  font-size: 0.88rem;
   font-weight: 700;
-  color: #ffffff;
-  background: #000000;
-  border: 1px solid rgba(255, 255, 255, 0.15);
-  border-radius: 8px;
-  padding: 0.6rem 1.25rem;
+  color: #38bdf8;
+  background: transparent;
+  border: none;
   cursor: pointer;
+  padding: 0;
   font-family: inherit;
   margin-top: auto;
-  align-self: flex-start;
-  transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+  transition: all 0.25s ease;
 }
 
 .btn-read-inline i {
   transition: transform 0.25s ease;
 }
 
-.btn-read-inline:hover {
-  background: #111827;
-  border-color: rgba(56, 189, 248, 0.5);
-  color: #ffffff;
-  transform: translateY(-2px);
-  box-shadow: 0 4px 14px rgba(0, 0, 0, 0.4);
-}
-
 .btn-read-inline:hover i,
 .insight-article-card:hover .btn-read-inline i {
-  transform: translateX(4px);
+  transform: translateX(5px);
 }
 
 /* --- 4. Insights Call to Action Section --- */
@@ -9847,931 +9786,6 @@ body.theme-page-cyber-blue .contact-details strong {
 .contact-info .contact-details div,
 body.theme-page-cyber-blue .contact-details div {
   color: #cbd5e1 !important;
-}
-
-/* ===================================================
-   INDUSTRIES PAGE SHOWCASE — WHITE BACKGROUND LIGHT THEME
-   (From Financial Services to Commerce & Consumer Goods)
-   =================================================== */
-
-/* 1. Force solid opaque white background on showcase wrapper and all 4 industry sections to hide dark canvas underneath */
-.industries-showcase-wrapper,
-body.page-industries .industries-showcase-wrapper,
-body.theme-page-cyber-blue .industries-showcase-wrapper,
-#banking-fintech,
-#healthcare,
-#manufacturing,
-#retail-cpg,
-.industry-section-item,
-body.theme-page-cyber-blue .industry-section-item,
-body.theme-page-cyber-blue .section-padding:not(#insights):not(#process):not(#about):not(#services):not(#why-us):not(#services-grid-section):not(#why-join-us):not(#life-at-arshith):not(#openings):not(.careers-why-section):not(.careers-life-section):not(.careers-culture-section):not(.careers-openings-section):not(.careers-cta-section):not(.careers-light-wrapper) {
-  background-color: #ffffff !important;
-  background: #ffffff !important;
-  color: #0f172a !important;
-  position: relative !important;
-  z-index: 2 !important;
-}
-
-/* 2. Alternating Section Subtle Light Shading (#healthcare and #retail-cpg) */
-#healthcare,
-#retail-cpg,
-body.page-industries #healthcare,
-body.page-industries #retail-cpg,
-body.theme-page-cyber-blue #healthcare,
-body.theme-page-cyber-blue #retail-cpg,
-.industry-section-item.bg-alt-subtle {
-  background-color: #f8fafc !important;
-  background: #f8fafc !important;
-  border-top: 1px solid #e2e8f0 !important;
-  border-bottom: 1px solid #e2e8f0 !important;
-}
-
-/* 3. Section Titles (Banking & FinTech, Healthcare, Manufacturing, Retail & CPG) */
-.industry-content-col h2.industry-title,
-.industry-content-col .industry-title,
-#banking-fintech .industry-title,
-#healthcare .industry-title,
-#manufacturing .industry-title,
-#retail-cpg .industry-title,
-body.page-industries .industry-title,
-body.theme-page-cyber-blue .industry-title {
-  color: #0f172a !important;
-  font-size: 2.6rem !important;
-  font-weight: 800 !important;
-  line-height: 1.2 !important;
-  margin-bottom: 1rem !important;
-  letter-spacing: -0.025em !important;
-  background: none !important;
-  -webkit-text-fill-color: #0f172a !important;
-}
-
-/* 4. Section Descriptions */
-.industry-content-col .industry-lead-desc,
-body.page-industries .industry-lead-desc,
-body.theme-page-cyber-blue .industry-lead-desc {
-  color: #1e293b !important;
-  font-size: 1.1rem !important;
-  font-weight: 500 !important;
-  line-height: 1.65 !important;
-}
-
-.industry-content-col .industry-sub-desc,
-body.page-industries .industry-sub-desc,
-body.theme-page-cyber-blue .industry-sub-desc {
-  color: #475569 !important;
-  font-size: 0.95rem !important;
-  line-height: 1.65 !important;
-}
-
-.industry-content-col .industry-key-areas-header,
-body.page-industries .industry-key-areas-header,
-body.theme-page-cyber-blue .industry-key-areas-header {
-  color: #334155 !important;
-  font-weight: 700 !important;
-}
-
-.industry-content-col .industry-key-areas-header i,
-body.page-industries .industry-key-areas-header i,
-body.theme-page-cyber-blue .industry-key-areas-header i {
-  color: #0284c7 !important;
-}
-
-.industry-content-col .industry-category,
-body.page-industries .industry-category,
-body.theme-page-cyber-blue .industry-category {
-  color: #0284c7 !important;
-  font-weight: 800 !important;
-}
-
-.industry-content-col .industry-number-tag,
-body.page-industries .industry-number-tag,
-body.theme-page-cyber-blue .industry-number-tag {
-  background: rgba(2, 132, 199, 0.1) !important;
-  border: 1px solid rgba(2, 132, 199, 0.3) !important;
-  color: #0284c7 !important;
-}
-
-/* 5. Core Focus Area Cards */
-.key-area-item,
-body.page-industries .key-area-item,
-body.theme-page-cyber-blue .key-area-item {
-  background: #ffffff !important;
-  border: 1px solid #e2e8f0 !important;
-  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05) !important;
-}
-
-.key-area-item:hover,
-body.page-industries .key-area-item:hover,
-body.theme-page-cyber-blue .key-area-item:hover {
-  background: #ffffff !important;
-  border-color: #0284c7 !important;
-  box-shadow: 0 8px 25px rgba(2, 132, 199, 0.15) !important;
-  transform: translateY(-2px);
-}
-
-.key-area-item .area-icon,
-body.page-industries .area-icon,
-body.theme-page-cyber-blue .area-icon {
-  background: rgba(2, 132, 199, 0.1) !important;
-  border: 1px solid rgba(2, 132, 199, 0.25) !important;
-  color: #0284c7 !important;
-}
-
-.key-area-item .area-text strong,
-body.page-industries .area-text strong,
-body.theme-page-cyber-blue .area-text strong {
-  color: #0f172a !important;
-}
-
-.key-area-item .area-text span,
-body.page-industries .area-text span,
-body.theme-page-cyber-blue .area-text span {
-  color: #64748b !important;
-}
-
-/* 6. Image Visual Cards & Floating HUD Tags */
-.industry-image-card,
-body.page-industries .industry-image-card,
-body.theme-page-cyber-blue .industry-image-card {
-  background: #ffffff !important;
-  border: 1px solid #e2e8f0 !important;
-  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08) !important;
-}
-
-.industry-image-card:hover,
-body.page-industries .industry-image-card:hover,
-body.theme-page-cyber-blue .industry-image-card:hover {
-  border-color: #0284c7 !important;
-  box-shadow: 0 15px 40px rgba(2, 132, 199, 0.18) !important;
-}
-
-.industry-floating-hud,
-body.page-industries .industry-floating-hud,
-body.theme-page-cyber-blue .industry-floating-hud {
-  background: rgba(255, 255, 255, 0.94) !important;
-  border: 1px solid #e2e8f0 !important;
-  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.1) !important;
-}
-
-.industry-floating-hud .hud-info strong,
-body.page-industries .hud-info strong,
-body.theme-page-cyber-blue .hud-info strong {
-  color: #0f172a !important;
-}
-
-.industry-floating-hud .hud-info span,
-body.page-industries .hud-info span,
-body.theme-page-cyber-blue .hud-info span {
-  color: #475569 !important;
-}
-
-.industry-floating-hud .hud-icon,
-body.page-industries .hud-icon,
-body.theme-page-cyber-blue .hud-icon {
-  color: #0284c7 !important;
-}
-
-/* 7. Jump-to Sticky Navigation Bar */
-.industry-quickbar,
-body.page-industries .industry-quickbar,
-body.theme-page-cyber-blue .industry-quickbar {
-  background: rgba(255, 255, 255, 0.96) !important;
-  border-bottom: 1px solid #e2e8f0 !important;
-  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.05) !important;
-}
-
-.quickbar-label,
-body.page-industries .quickbar-label,
-body.theme-page-cyber-blue .quickbar-label {
-  color: #0284c7 !important;
-}
-
-.quickbar-link,
-body.page-industries .quickbar-link,
-body.theme-page-cyber-blue .quickbar-link {
-  color: #475569 !important;
-  background: #f8fafc !important;
-  border: 1px solid #e2e8f0 !important;
-}
-
-.quickbar-link .link-num,
-body.page-industries .quickbar-link .link-num,
-body.theme-page-cyber-blue .quickbar-link .link-num {
-  color: #0284c7 !important;
-}
-
-.quickbar-link:hover,
-.quickbar-link.active,
-body.page-industries .quickbar-link.active,
-body.theme-page-cyber-blue .quickbar-link.active {
-  color: #ffffff !important;
-  background: #0284c7 !important;
-  border-color: #0284c7 !important;
-  box-shadow: 0 4px 14px rgba(2, 132, 199, 0.25) !important;
-}
-
-.quickbar-link.active .link-num,
-.quickbar-link:hover .link-num,
-body.page-industries .quickbar-link.active .link-num,
-body.theme-page-cyber-blue .quickbar-link.active .link-num {
-  color: #ffffff !important;
-}
-
-/* 8. Detail Modals */
-.industry-modal-box,
-body.page-industries .industry-modal-box,
-body.theme-page-cyber-blue .industry-modal-box {
-  background: #ffffff !important;
-  border: 1px solid #e2e8f0 !important;
-  color: #0f172a !important;
-  box-shadow: 0 25px 80px rgba(0, 0, 0, 0.2) !important;
-}
-
-.industry-modal-title,
-body.page-industries .industry-modal-title,
-body.theme-page-cyber-blue .industry-modal-title {
-  color: #0f172a !important;
-  font-size: 1.85rem !important;
-}
-
-.ind-modal-tag,
-body.page-industries .ind-modal-tag,
-body.theme-page-cyber-blue .ind-modal-tag {
-  color: #0284c7 !important;
-}
-
-.ind-modal-icon-badge,
-body.page-industries .ind-modal-icon-badge,
-body.theme-page-cyber-blue .ind-modal-icon-badge {
-  background: rgba(2, 132, 199, 0.1) !important;
-  border-color: rgba(2, 132, 199, 0.25) !important;
-  color: #0284c7 !important;
-}
-
-.industry-modal-overview h4,
-.solutions-heading,
-body.page-industries .solutions-heading,
-body.theme-page-cyber-blue .solutions-heading {
-  color: #0f172a !important;
-}
-
-.industry-modal-overview p,
-body.page-industries .industry-modal-overview p,
-body.theme-page-cyber-blue .industry-modal-overview p {
-  color: #475569 !important;
-}
-
-.industry-solutions-list li,
-body.page-industries .industry-solutions-list li,
-body.theme-page-cyber-blue .industry-solutions-list li {
-  color: #334155 !important;
-}
-
-.industry-solutions-list li strong,
-body.page-industries .industry-solutions-list li strong,
-body.theme-page-cyber-blue .industry-solutions-list li strong {
-  color: #0f172a !important;
-}
-
-.industry-modal-close,
-body.page-industries .industry-modal-close,
-body.theme-page-cyber-blue .industry-modal-close {
-  color: #475569 !important;
-}
-
-/* ===================================================
-   SERVICES PAGE SHOWCASE — WHITE BACKGROUND LIGHT THEME
-   (From Digital Transformation to Cybersecurity)
-   =================================================== */
-
-#services-grid-section,
-#digital-transformation,
-#cloud-computing,
-#engineering-rd,
-#ai-solutions,
-#cybersecurity,
-.services-deep-dive,
-body.page-services #services-grid-section,
-body.page-services .services-deep-dive,
-body.theme-page-cyber-blue #services-grid-section,
-body.theme-page-cyber-blue .services-deep-dive {
-  background-color: #ffffff !important;
-  background: #ffffff !important;
-  color: #0f172a !important;
-  position: relative !important;
-  z-index: 5 !important;
-}
-
-#cloud-computing,
-#ai-solutions,
-body.page-services #cloud-computing,
-body.page-services #ai-solutions,
-body.theme-page-cyber-blue #cloud-computing,
-body.theme-page-cyber-blue #ai-solutions {
-  background-color: #f8fafc !important;
-  background: #f8fafc !important;
-  border-top: 1px solid #e2e8f0 !important;
-  border-bottom: 1px solid #e2e8f0 !important;
-}
-
-/* Headings & Text */
-.capabilities-heading-animated,
-body.page-services .capabilities-heading-animated,
-body.theme-page-cyber-blue .capabilities-heading-animated {
-  color: #0f172a !important;
-  background: none !important;
-  -webkit-text-fill-color: #0f172a !important;
-}
-
-.capabilities-accent-reflect,
-body.page-services .capabilities-accent-reflect,
-body.theme-page-cyber-blue .capabilities-accent-reflect {
-  color: #0284c7 !important;
-  background: none !important;
-  -webkit-text-fill-color: #0284c7 !important;
-}
-
-.section-subtitle,
-body.page-services .section-subtitle,
-body.theme-page-cyber-blue .section-subtitle {
-  color: #475569 !important;
-}
-
-.services-detail-title,
-body.page-services .services-detail-title,
-body.theme-page-cyber-blue .services-detail-title {
-  color: #0f172a !important;
-  font-size: 2.5rem !important;
-  font-weight: 800 !important;
-  line-height: 1.2 !important;
-  margin-bottom: 1rem !important;
-  background: none !important;
-  -webkit-text-fill-color: #0f172a !important;
-}
-
-.services-detail-lead,
-body.page-services .services-detail-lead,
-body.theme-page-cyber-blue .services-detail-lead {
-  color: #1e293b !important;
-  font-size: 1.1rem !important;
-  font-weight: 500 !important;
-}
-
-/* Deliverable Cards */
-.deliverable-item,
-body.page-services .deliverable-item,
-body.theme-page-cyber-blue .deliverable-item {
-  background: #ffffff !important;
-  border: 1px solid #e2e8f0 !important;
-  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.04) !important;
-}
-
-.deliverable-item:hover,
-body.page-services .deliverable-item:hover,
-body.theme-page-cyber-blue .deliverable-item:hover {
-  border-color: #0284c7 !important;
-  box-shadow: 0 8px 25px rgba(2, 132, 199, 0.12) !important;
-  transform: translateY(-2px);
-}
-
-.deliverable-item i,
-body.page-services .deliverable-item i,
-body.theme-page-cyber-blue .deliverable-item i {
-  color: #0284c7 !important;
-}
-
-.deliverable-item strong,
-body.page-services .deliverable-item strong,
-body.theme-page-cyber-blue .deliverable-item strong {
-  color: #0f172a !important;
-}
-
-.deliverable-item p,
-body.page-services .deliverable-item p,
-body.theme-page-cyber-blue .deliverable-item p {
-  color: #475569 !important;
-}
-
-/* Media Frame & Badges */
-.service-media-frame,
-body.page-services .service-media-frame,
-body.theme-page-cyber-blue .service-media-frame {
-  border: 1px solid #e2e8f0 !important;
-  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08) !important;
-  background: #ffffff !important;
-}
-
-.service-media-badge,
-body.page-services .service-media-badge,
-body.theme-page-cyber-blue .service-media-badge {
-  background: rgba(255, 255, 255, 0.94) !important;
-  border: 1px solid #e2e8f0 !important;
-  color: #0f172a !important;
-  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.1) !important;
-}
-
-.service-media-badge span,
-body.page-services .service-media-badge span,
-body.theme-page-cyber-blue .service-media-badge span {
-  color: #0f172a !important;
-}
-
-.service-media-badge i,
-body.page-services .service-media-badge i,
-body.theme-page-cyber-blue .service-media-badge i {
-  color: #0284c7 !important;
-}
-
-/* Section Badges */
-.section-badge,
-body.page-services .section-badge,
-body.theme-page-cyber-blue .section-badge {
-  background: rgba(2, 132, 199, 0.08) !important;
-  border: 1px solid rgba(2, 132, 199, 0.25) !important;
-  color: #0284c7 !important;
-}
-
-/* ===================================================
-   INSIGHTS PAGE SHOWCASE — WHITE BACKGROUND LIGHT THEME
-   (From Artificial Intelligence to Emerging Technology)
-   =================================================== */
-
-/* 1. Force solid opaque white background on insights magazine wrapper */
-.insights-magazine-wrapper,
-body.page-insights .insights-magazine-wrapper,
-body.theme-page-cyber-blue .insights-magazine-wrapper {
-  background-color: #ffffff !important;
-  background: #ffffff !important;
-  color: #0f172a !important;
-  padding-top: 3.5rem !important;
-  padding-bottom: 4.5rem !important;
-  position: relative !important;
-  z-index: 2 !important;
-}
-
-/* 2. Article Cards Styling on White Background */
-.insights-magazine-wrapper .featured-insight-card,
-.insights-magazine-wrapper .insight-article-card {
-  background: #ffffff !important;
-  border: 1px solid #e2e8f0 !important;
-  border-radius: 24px !important;
-  box-shadow: 0 10px 30px rgba(15, 23, 42, 0.08), 0 2px 8px rgba(15, 23, 42, 0.04) !important;
-  transition: all 0.35s cubic-bezier(0.16, 1, 0.3, 1) !important;
-}
-
-.insights-magazine-wrapper .featured-insight-card:hover,
-.insights-magazine-wrapper .insight-article-card:hover {
-  transform: translateY(-5px) !important;
-  border-color: #0284c7 !important;
-  box-shadow: 0 20px 45px rgba(2, 132, 199, 0.18), 0 4px 12px rgba(15, 23, 42, 0.08) !important;
-}
-
-/* 3. Content Pane & Typography for High Contrast on White */
-.insights-magazine-wrapper .featured-content-pane {
-  background: #ffffff !important;
-}
-
-.insights-magazine-wrapper .featured-article-title {
-  color: #0f172a !important;
-}
-
-.insights-magazine-wrapper .featured-insight-card:hover .featured-article-title,
-.insights-magazine-wrapper .insight-article-card:hover .featured-article-title {
-  color: #0284c7 !important;
-}
-
-.insights-magazine-wrapper .featured-article-desc {
-  color: #334155 !important;
-}
-
-.insights-magazine-wrapper .article-pub-date {
-  color: #64748b !important;
-}
-
-.insights-magazine-wrapper .author-attribution {
-  color: #475569 !important;
-}
-
-/* 4. Category Badges on Light Theme */
-.insights-magazine-wrapper .cat-ai {
-  color: #0284c7 !important;
-  background: #e0f2fe !important;
-  border: 1px solid #bae6fd !important;
-}
-
-.insights-magazine-wrapper .cat-cloud {
-  color: #2563eb !important;
-  background: #dbeafe !important;
-  border: 1px solid #bfdbfe !important;
-}
-
-.insights-magazine-wrapper .cat-cybersecurity {
-  color: #e11d48 !important;
-  background: #ffe4e6 !important;
-  border: 1px solid #fecdd3 !important;
-}
-
-.insights-magazine-wrapper .cat-transformation {
-  color: #7c3aed !important;
-  background: #f3e8ff !important;
-  border: 1px solid #e9d5ff !important;
-}
-
-.insights-magazine-wrapper .cat-industry {
-  color: #059669 !important;
-  background: #d1fae5 !important;
-  border: 1px solid #a7f3d0 !important;
-}
-
-.insights-magazine-wrapper .cat-emerging {
-  color: #d97706 !important;
-  background: #fef3c7 !important;
-  border: 1px solid #fde68a !important;
-}
-
-/* 5. Key Takeaways Badges on Light Theme */
-.insights-magazine-wrapper .takeaway-badge {
-  background: #f8fafc !important;
-  border: 1px solid #cbd5e1 !important;
-  color: #1e293b !important;
-}
-
-.insights-magazine-wrapper .takeaway-badge i {
-  color: #059669 !important;
-}
-
-/* 6. Action Buttons on Light Theme */
-.insights-magazine-wrapper .btn-read-insight {
-  background: #0f172a !important;
-  color: #ffffff !important;
-  border: 1px solid #0f172a !important;
-}
-
-.insights-magazine-wrapper .btn-read-insight:hover {
-  background: #0284c7 !important;
-  border-color: #0284c7 !important;
-  color: #ffffff !important;
-  transform: translateY(-2px) !important;
-  box-shadow: 0 6px 20px rgba(2, 132, 199, 0.35) !important;
-}
-
-/* ===================================================
-   CAREERS PAGE SHOWCASE FULL — WHITE BACKGROUND LIGHT THEME
-   (From "Why Build Your Career" down to "Career Opportunities")
-   =================================================== */
-
-/* 1. Force solid opaque white/light backgrounds on all Careers showcase sections */
-.careers-light-wrapper,
-.careers-why-section,
-.careers-life-section,
-.careers-culture-section,
-.careers-openings-section,
-#why-join-us,
-#life-at-arshith,
-#openings,
-body.page-careers .careers-light-wrapper,
-body.page-careers .careers-why-section,
-body.page-careers .careers-life-section,
-body.page-careers .careers-culture-section,
-body.page-careers .careers-openings-section,
-body.page-careers #why-join-us,
-body.page-careers #life-at-arshith,
-body.page-careers #openings,
-body.theme-page-cyber-blue .careers-light-wrapper,
-body.theme-page-cyber-blue .careers-why-section,
-body.theme-page-cyber-blue .careers-life-section,
-body.theme-page-cyber-blue .careers-culture-section,
-body.theme-page-cyber-blue .careers-openings-section,
-body.theme-page-cyber-blue #why-join-us,
-body.theme-page-cyber-blue #life-at-arshith,
-body.theme-page-cyber-blue #openings,
-body.theme-page-cyber-blue .careers-light-wrapper .section-padding,
-body.theme-page-cyber-blue .section-padding.careers-why-section,
-body.theme-page-cyber-blue .section-padding.careers-life-section,
-body.theme-page-cyber-blue .section-padding.careers-culture-section,
-body.theme-page-cyber-blue .section-padding.careers-openings-section,
-body.theme-page-cyber-blue section.careers-why-section,
-body.theme-page-cyber-blue section.careers-life-section,
-body.theme-page-cyber-blue section.careers-culture-section,
-body.theme-page-cyber-blue section.careers-openings-section,
-body.theme-page-cyber-blue section#why-join-us,
-body.theme-page-cyber-blue section#life-at-arshith,
-body.theme-page-cyber-blue section#openings {
-  background-color: #ffffff !important;
-  background: #ffffff !important;
-  color: #0f172a !important;
-  position: relative !important;
-  z-index: 10 !important;
-}
-
-.careers-why-section,
-#why-join-us,
-body.page-careers #why-join-us,
-body.theme-page-cyber-blue #why-join-us,
-body.theme-page-cyber-blue .careers-why-section,
-body.theme-page-cyber-blue .section-padding#why-join-us,
-body.theme-page-cyber-blue section.careers-why-section {
-  background-color: #ffffff !important;
-  background: #ffffff !important;
-  color: #0f172a !important;
-  position: relative !important;
-  z-index: 12 !important;
-}
-
-.careers-life-section,
-#life-at-arshith,
-body.page-careers .careers-life-section,
-body.page-careers #life-at-arshith,
-body.theme-page-cyber-blue .careers-life-section,
-body.theme-page-cyber-blue #life-at-arshith {
-  background-color: #ffffff !important;
-  background: #ffffff !important;
-  color: #0f172a !important;
-  position: relative !important;
-  z-index: 10 !important;
-  border-top: 1px solid #e2e8f0 !important;
-  border-bottom: 1px solid #e2e8f0 !important;
-}
-
-/* 2. Section Headings & Subtitles for Why, Life, Culture, and Openings Sections */
-.careers-why-section .section-heading,
-.careers-life-section .section-heading,
-.careers-culture-section .section-heading,
-.careers-openings-section .section-heading,
-.careers-light-wrapper .section-heading,
-body.page-careers .section-heading,
-body.theme-page-cyber-blue .careers-light-wrapper .section-heading,
-body.theme-page-cyber-blue .careers-why-section .section-heading,
-body.theme-page-cyber-blue .careers-life-section .section-heading,
-body.theme-page-cyber-blue .careers-culture-section .section-heading,
-body.theme-page-cyber-blue .careers-openings-section .section-heading,
-body.theme-page-cyber-blue #why-join-us .section-heading {
-  color: #0f172a !important;
-  background: none !important;
-  -webkit-background-clip: unset !important;
-  -webkit-text-fill-color: #0f172a !important;
-}
-
-.careers-why-section .section-subtitle,
-.careers-life-section .section-subtitle,
-.careers-culture-section .section-subtitle,
-.careers-openings-section .section-subtitle,
-.careers-light-wrapper .section-subtitle,
-body.page-careers .section-subtitle,
-body.theme-page-cyber-blue .careers-light-wrapper .section-subtitle,
-body.theme-page-cyber-blue #why-join-us .section-subtitle {
-  color: #334155 !important;
-}
-
-.careers-why-section .section-eyebrow,
-.careers-life-section .section-eyebrow,
-.careers-culture-section .section-eyebrow,
-.careers-openings-section .section-eyebrow,
-.careers-light-wrapper .section-eyebrow,
-body.page-careers .section-eyebrow,
-body.theme-page-cyber-blue .careers-light-wrapper .section-eyebrow,
-body.theme-page-cyber-blue #why-join-us .section-eyebrow {
-  color: #0284c7 !important;
-  background: rgba(2, 132, 199, 0.08) !important;
-  border: 1px solid rgba(2, 132, 199, 0.25) !important;
-}
-
-/* 3. Section 2: Why Feature Cards (GROW, INNOVATE, COLLABORATE, MAKE AN IMPACT) */
-.why-feature-card,
-body.page-careers .why-feature-card,
-body.theme-page-cyber-blue .why-feature-card {
-  background-color: #ffffff !important;
-  background: #ffffff !important;
-  background-image: none !important;
-  border: 1px solid #e2e8f0 !important;
-  border-radius: 20px !important;
-  box-shadow: 0 8px 25px rgba(15, 23, 42, 0.06), 0 2px 8px rgba(15, 23, 42, 0.04) !important;
-  transition: all 0.35s cubic-bezier(0.16, 1, 0.3, 1) !important;
-}
-
-.why-card-glow {
-  display: none !important;
-}
-
-.why-feature-card:hover,
-body.page-careers .why-feature-card:hover {
-  transform: translateY(-4px) !important;
-  border-color: #0284c7 !important;
-  box-shadow: 0 16px 40px rgba(2, 132, 199, 0.16), 0 4px 12px rgba(15, 23, 42, 0.08) !important;
-}
-
-.why-feature-card .why-card-title,
-body.page-careers .why-card-title {
-  color: #0f172a !important;
-  font-weight: 800 !important;
-}
-
-.why-feature-card .why-card-number,
-body.page-careers .why-card-number {
-  color: #94a3b8 !important;
-}
-
-.why-feature-card .why-card-desc,
-body.page-careers .why-card-desc {
-  color: #334155 !important;
-}
-
-.why-feature-card .why-card-points {
-  border-top-color: #e2e8f0 !important;
-}
-
-.why-feature-card .why-card-points li,
-body.page-careers .why-card-points li {
-  color: #475569 !important;
-  font-weight: 600 !important;
-}
-
-.why-feature-card .why-card-points li i,
-body.page-careers .why-card-points li i {
-  color: #0284c7 !important;
-}
-
-.why-feature-card .why-icon-circle,
-body.page-careers .why-icon-circle {
-  background: rgba(2, 132, 199, 0.08) !important;
-  border: 1px solid rgba(2, 132, 199, 0.25) !important;
-  color: #0284c7 !important;
-}
-
-/* 4. Section 4: Culture Value Pillars (Curiosity, Ownership, Collaboration, Continuous Improvement) */
-.culture-value-pillar,
-body.page-careers .culture-value-pillar,
-body.theme-page-cyber-blue .culture-value-pillar {
-  background-color: #ffffff !important;
-  background: #ffffff !important;
-  background-image: none !important;
-  border: 1px solid #e2e8f0 !important;
-  border-radius: 20px !important;
-  box-shadow: 0 8px 25px rgba(15, 23, 42, 0.06), 0 2px 8px rgba(15, 23, 42, 0.04) !important;
-  transition: all 0.35s cubic-bezier(0.16, 1, 0.3, 1) !important;
-}
-
-.culture-value-pillar:hover,
-body.page-careers .culture-value-pillar:hover {
-  transform: translateY(-4px) !important;
-  border-color: #0284c7 !important;
-  box-shadow: 0 16px 40px rgba(2, 132, 199, 0.16), 0 4px 12px rgba(15, 23, 42, 0.08) !important;
-}
-
-.culture-value-pillar .pillar-title,
-body.page-careers .pillar-title {
-  color: #0f172a !important;
-  font-weight: 800 !important;
-}
-
-.culture-value-pillar .pillar-desc,
-body.page-careers .pillar-desc {
-  color: #334155 !important;
-}
-
-.culture-value-pillar .pillar-footer-tag,
-body.page-careers .pillar-footer-tag {
-  color: #0284c7 !important;
-  font-weight: 800 !important;
-}
-
-.culture-value-pillar .pillar-icon,
-body.page-careers .pillar-icon {
-  background: rgba(2, 132, 199, 0.08) !important;
-  border: 1px solid rgba(2, 132, 199, 0.25) !important;
-  color: #0284c7 !important;
-}
-
-.culture-value-pillar .pillar-top-accent,
-body.page-careers .pillar-top-accent {
-  background: linear-gradient(90deg, #0284c7 0%, #00f2fe 100%) !important;
-}
-
-/* 5. Section 5: Openings Notice, Filter Bar, & Job Cards */
-.openings-demo-notice {
-  background: #f8fafc !important;
-  border: 1px solid #cbd5e1 !important;
-  color: #475569 !important;
-}
-
-.openings-demo-notice i {
-  color: #0284c7 !important;
-}
-
-.careers-filter-bar .career-filter-label {
-  color: #334155 !important;
-  font-weight: 700 !important;
-}
-
-.careers-filter-bar .career-pill {
-  color: #475569 !important;
-  background: #f8fafc !important;
-  border: 1px solid #cbd5e1 !important;
-}
-
-.careers-filter-bar .career-pill:hover,
-.careers-filter-bar .career-pill.active {
-  color: #ffffff !important;
-  background: #0284c7 !important;
-  border-color: #0284c7 !important;
-  box-shadow: 0 4px 14px rgba(2, 132, 199, 0.3) !important;
-}
-
-.jobs-list-container .job-card-item,
-body.page-careers .job-card-item,
-body.theme-page-cyber-blue .job-card-item {
-  background: #ffffff !important;
-  border: 1px solid #e2e8f0 !important;
-  border-radius: 20px !important;
-  box-shadow: 0 8px 24px rgba(15, 23, 42, 0.06), 0 2px 8px rgba(15, 23, 42, 0.04) !important;
-  transition: all 0.35s cubic-bezier(0.16, 1, 0.3, 1) !important;
-}
-
-.jobs-list-container .job-card-item:hover,
-body.page-careers .job-card-item:hover,
-body.theme-page-cyber-blue .job-card-item:hover {
-  transform: translateY(-4px) !important;
-  border-color: #0284c7 !important;
-  box-shadow: 0 16px 40px rgba(2, 132, 199, 0.16), 0 4px 12px rgba(15, 23, 42, 0.08) !important;
-}
-
-.job-card-item .job-title,
-body.page-careers .job-title {
-  color: #0f172a !important;
-}
-
-.job-card-item:hover .job-title,
-body.page-careers .job-card-item:hover .job-title {
-  color: #0284c7 !important;
-}
-
-.job-card-item .job-snippet,
-body.page-careers .job-snippet {
-  color: #334155 !important;
-}
-
-.job-meta-row .meta-tag,
-body.page-careers .meta-tag {
-  background: #f8fafc !important;
-  border: 1px solid #cbd5e1 !important;
-  color: #475569 !important;
-}
-
-.job-meta-row .meta-tag i,
-body.page-careers .meta-tag i {
-  color: #0284c7 !important;
-}
-
-.job-dept-tag.tag-engineering {
-  color: #0284c7 !important;
-  background: #e0f2fe !important;
-  border: 1px solid #bae6fd !important;
-}
-
-.job-dept-tag.tag-ai {
-  color: #0284c7 !important;
-  background: #e0f2fe !important;
-  border: 1px solid #bae6fd !important;
-}
-
-.job-dept-tag.tag-cloud {
-  color: #2563eb !important;
-  background: #dbeafe !important;
-  border: 1px solid #bfdbfe !important;
-}
-
-.job-dept-tag.tag-cyber {
-  color: #e11d48 !important;
-  background: #ffe4e6 !important;
-  border: 1px solid #fecdd3 !important;
-}
-
-.job-dept-tag.tag-design {
-  color: #7c3aed !important;
-  background: #f3e8ff !important;
-  border: 1px solid #e9d5ff !important;
-}
-
-.job-dept-tag.tag-business {
-  color: #059669 !important;
-  background: #d1fae5 !important;
-  border: 1px solid #a7f3d0 !important;
-}
-
-.btn-view-job,
-body.page-careers .btn-view-job {
-  background: #0f172a !important;
-  color: #ffffff !important;
-  border: 1px solid #0f172a !important;
-}
-
-.btn-view-job:hover,
-body.page-careers .btn-view-job:hover {
-  background: #0284c7 !important;
-  border-color: #0284c7 !important;
-  color: #ffffff !important;
-  transform: translateY(-2px) !important;
-  box-shadow: 0 6px 18px rgba(2, 132, 199, 0.35) !important;
 }
 
 

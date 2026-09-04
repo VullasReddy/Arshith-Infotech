@@ -5581,21 +5581,21 @@ body.theme-page-dark-emerald .aurora-orb-3 {
 body.theme-page-cyber-blue #tech-stack,
 body.theme-page-cyber-blue #contact,
 body.theme-page-cyber-blue #stats,
-body.theme-page-cyber-blue .careers-section,
-body.theme-page-cyber-blue .section-padding:not(#insights):not(#process):not(#about):not(#services):not(#why-us):not(#industries):not(#services-grid-section),
-body.theme-page-cyber-blue .bg-alt:not(#insights):not(#process):not(#about):not(#services):not(#why-us):not(#industries):not(#services-grid-section),
+body.theme-page-cyber-blue .careers-section:not(.careers-why-section):not(.careers-life-section):not(.careers-culture-section):not(.careers-openings-section),
+body.theme-page-cyber-blue .section-padding:not(#insights):not(#process):not(#about):not(#services):not(#why-us):not(#industries):not(#services-grid-section):not(#why-join-us):not(#life-at-arshith):not(#openings):not(.careers-why-section):not(.careers-life-section):not(.careers-culture-section):not(.careers-openings-section):not(.careers-cta-section):not(.careers-light-wrapper),
+body.theme-page-cyber-blue .bg-alt:not(#insights):not(#process):not(#about):not(#services):not(#why-us):not(#industries):not(#services-grid-section):not(#why-join-us):not(#life-at-arshith):not(#openings):not(.careers-why-section):not(.careers-life-section):not(.careers-culture-section):not(.careers-openings-section):not(.careers-cta-section):not(.careers-light-wrapper),
 body.theme-cyber-blue #tech-stack,
 body.theme-cyber-blue #contact,
 body.theme-cyber-blue #stats,
-body.theme-cyber-blue .careers-section,
-body.theme-cyber-blue .section-padding:not(#insights):not(#process):not(#about):not(#services):not(#why-us):not(#industries):not(#services-grid-section),
-body.theme-cyber-blue .bg-alt:not(#insights):not(#process):not(#about):not(#services):not(#why-us):not(#industries):not(#services-grid-section),
+body.theme-cyber-blue .careers-section:not(.careers-why-section):not(.careers-life-section):not(.careers-culture-section):not(.careers-openings-section),
+body.theme-cyber-blue .section-padding:not(#insights):not(#process):not(#about):not(#services):not(#why-us):not(#industries):not(#services-grid-section):not(#why-join-us):not(#life-at-arshith):not(#openings):not(.careers-why-section):not(.careers-life-section):not(.careers-culture-section):not(.careers-openings-section):not(.careers-cta-section):not(.careers-light-wrapper),
+body.theme-cyber-blue .bg-alt:not(#insights):not(#process):not(#about):not(#services):not(#why-us):not(#industries):not(#services-grid-section):not(#why-join-us):not(#life-at-arshith):not(#openings):not(.careers-why-section):not(.careers-life-section):not(.careers-culture-section):not(.careers-openings-section):not(.careers-cta-section):not(.careers-light-wrapper),
 body.theme-page-dark-emerald #tech-stack,
 body.theme-page-dark-emerald #contact,
 body.theme-page-dark-emerald #stats,
-body.theme-page-dark-emerald .careers-section,
-body.theme-page-dark-emerald .section-padding:not(#insights):not(#process):not(#about):not(#services):not(#why-us):not(#industries):not(#services-grid-section),
-body.theme-page-dark-emerald .bg-alt:not(#insights):not(#process):not(#about):not(#services):not(#why-us):not(#industries):not(#services-grid-section) {
+body.theme-page-dark-emerald .careers-section:not(.careers-why-section):not(.careers-life-section):not(.careers-culture-section):not(.careers-openings-section),
+body.theme-page-dark-emerald .section-padding:not(#insights):not(#process):not(#about):not(#services):not(#why-us):not(#industries):not(#services-grid-section):not(#why-join-us):not(#life-at-arshith):not(#openings):not(.careers-why-section):not(.careers-life-section):not(.careers-culture-section):not(.careers-openings-section):not(.careers-cta-section):not(.careers-light-wrapper),
+body.theme-page-dark-emerald .bg-alt:not(#insights):not(#process):not(#about):not(#services):not(#why-us):not(#industries):not(#services-grid-section):not(#why-join-us):not(#life-at-arshith):not(#openings):not(.careers-why-section):not(.careers-life-section):not(.careers-culture-section):not(.careers-openings-section):not(.careers-cta-section):not(.careers-light-wrapper) {
   background: linear-gradient(180deg, rgba(4, 8, 22, 0.78) 0%, rgba(8, 17, 38, 0.85) 50%, rgba(4, 8, 22, 0.78) 100%) !important;
   position: relative;
   z-index: 2;
@@ -9786,6 +9786,365 @@ body.theme-page-cyber-blue .contact-details strong {
 .contact-info .contact-details div,
 body.theme-page-cyber-blue .contact-details div {
   color: #cbd5e1 !important;
+}
+
+/* ===================================================
+   CAREERS PAGE SHOWCASE FULL — WHITE BACKGROUND LIGHT THEME
+   (From "Why Build Your Career" down to "Career Opportunities")
+   =================================================== */
+
+/* 1. Force solid opaque white/light backgrounds on all Careers showcase sections */
+.careers-light-wrapper,
+.careers-why-section,
+.careers-life-section,
+.careers-culture-section,
+.careers-openings-section,
+#why-join-us,
+#life-at-arshith,
+#openings,
+body.page-careers .careers-light-wrapper,
+body.page-careers .careers-why-section,
+body.page-careers .careers-life-section,
+body.page-careers .careers-culture-section,
+body.page-careers .careers-openings-section,
+body.page-careers #why-join-us,
+body.page-careers #life-at-arshith,
+body.page-careers #openings,
+body.theme-page-cyber-blue .careers-light-wrapper,
+body.theme-page-cyber-blue .careers-why-section,
+body.theme-page-cyber-blue .careers-life-section,
+body.theme-page-cyber-blue .careers-culture-section,
+body.theme-page-cyber-blue .careers-openings-section,
+body.theme-page-cyber-blue #why-join-us,
+body.theme-page-cyber-blue #life-at-arshith,
+body.theme-page-cyber-blue #openings,
+body.theme-page-cyber-blue .careers-light-wrapper .section-padding,
+body.theme-page-cyber-blue .section-padding.careers-why-section,
+body.theme-page-cyber-blue .section-padding.careers-life-section,
+body.theme-page-cyber-blue .section-padding.careers-culture-section,
+body.theme-page-cyber-blue .section-padding.careers-openings-section,
+body.theme-page-cyber-blue section.careers-why-section,
+body.theme-page-cyber-blue section.careers-life-section,
+body.theme-page-cyber-blue section.careers-culture-section,
+body.theme-page-cyber-blue section.careers-openings-section,
+body.theme-page-cyber-blue section#why-join-us,
+body.theme-page-cyber-blue section#life-at-arshith,
+body.theme-page-cyber-blue section#openings {
+  background-color: #ffffff !important;
+  background: #ffffff !important;
+  color: #0f172a !important;
+  position: relative !important;
+  z-index: 10 !important;
+}
+
+.careers-why-section,
+#why-join-us,
+body.page-careers #why-join-us,
+body.theme-page-cyber-blue #why-join-us,
+body.theme-page-cyber-blue .careers-why-section,
+body.theme-page-cyber-blue .section-padding#why-join-us,
+body.theme-page-cyber-blue section.careers-why-section {
+  background-color: #ffffff !important;
+  background: #ffffff !important;
+  color: #0f172a !important;
+  position: relative !important;
+  z-index: 12 !important;
+}
+
+.careers-life-section,
+#life-at-arshith,
+body.page-careers .careers-life-section,
+body.page-careers #life-at-arshith,
+body.theme-page-cyber-blue .careers-life-section,
+body.theme-page-cyber-blue #life-at-arshith {
+  background-color: #ffffff !important;
+  background: #ffffff !important;
+  color: #0f172a !important;
+  position: relative !important;
+  z-index: 10 !important;
+  border-top: 1px solid #e2e8f0 !important;
+  border-bottom: 1px solid #e2e8f0 !important;
+}
+
+/* 2. Section Headings & Subtitles for Why, Life, Culture, and Openings Sections */
+.careers-why-section .section-heading,
+.careers-life-section .section-heading,
+.careers-culture-section .section-heading,
+.careers-openings-section .section-heading,
+.careers-light-wrapper .section-heading,
+body.page-careers .section-heading,
+body.theme-page-cyber-blue .careers-light-wrapper .section-heading,
+body.theme-page-cyber-blue .careers-why-section .section-heading,
+body.theme-page-cyber-blue .careers-life-section .section-heading,
+body.theme-page-cyber-blue .careers-culture-section .section-heading,
+body.theme-page-cyber-blue .careers-openings-section .section-heading,
+body.theme-page-cyber-blue #why-join-us .section-heading {
+  color: #0f172a !important;
+  background: none !important;
+  -webkit-background-clip: unset !important;
+  -webkit-text-fill-color: #0f172a !important;
+}
+
+.careers-why-section .section-subtitle,
+.careers-life-section .section-subtitle,
+.careers-culture-section .section-subtitle,
+.careers-openings-section .section-subtitle,
+.careers-light-wrapper .section-subtitle,
+body.page-careers .section-subtitle,
+body.theme-page-cyber-blue .careers-light-wrapper .section-subtitle,
+body.theme-page-cyber-blue #why-join-us .section-subtitle {
+  color: #334155 !important;
+}
+
+.careers-why-section .section-eyebrow,
+.careers-life-section .section-eyebrow,
+.careers-culture-section .section-eyebrow,
+.careers-openings-section .section-eyebrow,
+.careers-light-wrapper .section-eyebrow,
+body.page-careers .section-eyebrow,
+body.theme-page-cyber-blue .careers-light-wrapper .section-eyebrow,
+body.theme-page-cyber-blue #why-join-us .section-eyebrow {
+  color: #0284c7 !important;
+  background: rgba(2, 132, 199, 0.08) !important;
+  border: 1px solid rgba(2, 132, 199, 0.25) !important;
+}
+
+/* 3. Section 2: Why Feature Cards (GROW, INNOVATE, COLLABORATE, MAKE AN IMPACT) */
+.why-feature-card,
+body.page-careers .why-feature-card,
+body.theme-page-cyber-blue .why-feature-card {
+  background-color: #ffffff !important;
+  background: #ffffff !important;
+  background-image: none !important;
+  border: 1px solid #e2e8f0 !important;
+  border-radius: 20px !important;
+  box-shadow: 0 8px 25px rgba(15, 23, 42, 0.06), 0 2px 8px rgba(15, 23, 42, 0.04) !important;
+  transition: all 0.35s cubic-bezier(0.16, 1, 0.3, 1) !important;
+}
+
+.why-card-glow {
+  display: none !important;
+}
+
+.why-feature-card:hover,
+body.page-careers .why-feature-card:hover {
+  transform: translateY(-4px) !important;
+  border-color: #0284c7 !important;
+  box-shadow: 0 16px 40px rgba(2, 132, 199, 0.16), 0 4px 12px rgba(15, 23, 42, 0.08) !important;
+}
+
+.why-feature-card .why-card-title,
+body.page-careers .why-card-title {
+  color: #0f172a !important;
+  font-weight: 800 !important;
+}
+
+.why-feature-card .why-card-number,
+body.page-careers .why-card-number {
+  color: #94a3b8 !important;
+}
+
+.why-feature-card .why-card-desc,
+body.page-careers .why-card-desc {
+  color: #334155 !important;
+}
+
+.why-feature-card .why-card-points {
+  border-top-color: #e2e8f0 !important;
+}
+
+.why-feature-card .why-card-points li,
+body.page-careers .why-card-points li {
+  color: #475569 !important;
+  font-weight: 600 !important;
+}
+
+.why-feature-card .why-card-points li i,
+body.page-careers .why-card-points li i {
+  color: #0284c7 !important;
+}
+
+.why-feature-card .why-icon-circle,
+body.page-careers .why-icon-circle {
+  background: rgba(2, 132, 199, 0.08) !important;
+  border: 1px solid rgba(2, 132, 199, 0.25) !important;
+  color: #0284c7 !important;
+}
+
+/* 4. Section 4: Culture Value Pillars (Curiosity, Ownership, Collaboration, Continuous Improvement) */
+.culture-value-pillar,
+body.page-careers .culture-value-pillar,
+body.theme-page-cyber-blue .culture-value-pillar {
+  background-color: #ffffff !important;
+  background: #ffffff !important;
+  background-image: none !important;
+  border: 1px solid #e2e8f0 !important;
+  border-radius: 20px !important;
+  box-shadow: 0 8px 25px rgba(15, 23, 42, 0.06), 0 2px 8px rgba(15, 23, 42, 0.04) !important;
+  transition: all 0.35s cubic-bezier(0.16, 1, 0.3, 1) !important;
+}
+
+.culture-value-pillar:hover,
+body.page-careers .culture-value-pillar:hover {
+  transform: translateY(-4px) !important;
+  border-color: #0284c7 !important;
+  box-shadow: 0 16px 40px rgba(2, 132, 199, 0.16), 0 4px 12px rgba(15, 23, 42, 0.08) !important;
+}
+
+.culture-value-pillar .pillar-title,
+body.page-careers .pillar-title {
+  color: #0f172a !important;
+  font-weight: 800 !important;
+}
+
+.culture-value-pillar .pillar-desc,
+body.page-careers .pillar-desc {
+  color: #334155 !important;
+}
+
+.culture-value-pillar .pillar-footer-tag,
+body.page-careers .pillar-footer-tag {
+  color: #0284c7 !important;
+  font-weight: 800 !important;
+}
+
+.culture-value-pillar .pillar-icon,
+body.page-careers .pillar-icon {
+  background: rgba(2, 132, 199, 0.08) !important;
+  border: 1px solid rgba(2, 132, 199, 0.25) !important;
+  color: #0284c7 !important;
+}
+
+.culture-value-pillar .pillar-top-accent,
+body.page-careers .pillar-top-accent {
+  background: linear-gradient(90deg, #0284c7 0%, #00f2fe 100%) !important;
+}
+
+/* 5. Section 5: Openings Notice, Filter Bar, & Job Cards */
+.openings-demo-notice {
+  background: #f8fafc !important;
+  border: 1px solid #cbd5e1 !important;
+  color: #475569 !important;
+}
+
+.openings-demo-notice i {
+  color: #0284c7 !important;
+}
+
+.careers-filter-bar .career-filter-label {
+  color: #334155 !important;
+  font-weight: 700 !important;
+}
+
+.careers-filter-bar .career-pill {
+  color: #475569 !important;
+  background: #f8fafc !important;
+  border: 1px solid #cbd5e1 !important;
+}
+
+.careers-filter-bar .career-pill:hover,
+.careers-filter-bar .career-pill.active {
+  color: #ffffff !important;
+  background: #0284c7 !important;
+  border-color: #0284c7 !important;
+  box-shadow: 0 4px 14px rgba(2, 132, 199, 0.3) !important;
+}
+
+.jobs-list-container .job-card-item,
+body.page-careers .job-card-item,
+body.theme-page-cyber-blue .job-card-item {
+  background: #ffffff !important;
+  border: 1px solid #e2e8f0 !important;
+  border-radius: 20px !important;
+  box-shadow: 0 8px 24px rgba(15, 23, 42, 0.06), 0 2px 8px rgba(15, 23, 42, 0.04) !important;
+  transition: all 0.35s cubic-bezier(0.16, 1, 0.3, 1) !important;
+}
+
+.jobs-list-container .job-card-item:hover,
+body.page-careers .job-card-item:hover,
+body.theme-page-cyber-blue .job-card-item:hover {
+  transform: translateY(-4px) !important;
+  border-color: #0284c7 !important;
+  box-shadow: 0 16px 40px rgba(2, 132, 199, 0.16), 0 4px 12px rgba(15, 23, 42, 0.08) !important;
+}
+
+.job-card-item .job-title,
+body.page-careers .job-title {
+  color: #0f172a !important;
+}
+
+.job-card-item:hover .job-title,
+body.page-careers .job-card-item:hover .job-title {
+  color: #0284c7 !important;
+}
+
+.job-card-item .job-snippet,
+body.page-careers .job-snippet {
+  color: #334155 !important;
+}
+
+.job-meta-row .meta-tag,
+body.page-careers .meta-tag {
+  background: #f8fafc !important;
+  border: 1px solid #cbd5e1 !important;
+  color: #475569 !important;
+}
+
+.job-meta-row .meta-tag i,
+body.page-careers .meta-tag i {
+  color: #0284c7 !important;
+}
+
+.job-dept-tag.tag-engineering {
+  color: #0284c7 !important;
+  background: #e0f2fe !important;
+  border: 1px solid #bae6fd !important;
+}
+
+.job-dept-tag.tag-ai {
+  color: #0284c7 !important;
+  background: #e0f2fe !important;
+  border: 1px solid #bae6fd !important;
+}
+
+.job-dept-tag.tag-cloud {
+  color: #2563eb !important;
+  background: #dbeafe !important;
+  border: 1px solid #bfdbfe !important;
+}
+
+.job-dept-tag.tag-cyber {
+  color: #e11d48 !important;
+  background: #ffe4e6 !important;
+  border: 1px solid #fecdd3 !important;
+}
+
+.job-dept-tag.tag-design {
+  color: #7c3aed !important;
+  background: #f3e8ff !important;
+  border: 1px solid #e9d5ff !important;
+}
+
+.job-dept-tag.tag-business {
+  color: #059669 !important;
+  background: #d1fae5 !important;
+  border: 1px solid #a7f3d0 !important;
+}
+
+.btn-view-job,
+body.page-careers .btn-view-job {
+  background: #0f172a !important;
+  color: #ffffff !important;
+  border: 1px solid #0f172a !important;
+}
+
+.btn-view-job:hover,
+body.page-careers .btn-view-job:hover {
+  background: #0284c7 !important;
+  border-color: #0284c7 !important;
+  color: #ffffff !important;
+  transform: translateY(-2px) !important;
+  box-shadow: 0 6px 18px rgba(2, 132, 199, 0.35) !important;
 }
 
 
